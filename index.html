@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Smythe&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Food Ordering App</title>
+  </head>
+  <body>
+    <div class="container">
+      <header id="main-header">
+        <h1>Narfs Diner</h1>
+        <h3>The best in town.</h3>
+      </header>
+
+      <section id="menu"></section>
+
+      <section id="order">
+        <h2 class="order-title">Your order</h2>
+        <div id="order-wrapper"></div>
+        <div class="total orders">
+          <h3>Total price:</h3>
+          <h3 id="total-orders"></h3>
+        </div>
+        <button class="btn-order" id="order-btn">Complete order</button>
+      </section>
+
+      <section class="modal" id="modal">
+        <div class="close-modal-btn-container">
+          <button class="modal-close-btn" id="modal-close-btn">X</button>
+        </div>
+        <div class="modal-inner" id="modal-inner">
+          <h2 class="modal-title">Enter card details</h2>
+
+          <form id="payment-form">
+            <input
+              type="text"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+            <input
+              type="number"
+              name="number"
+              placeholder="Enter your card number"
+              required
+            />
+            <input
+              type="password"
+              name="password"
+              placeholder="Enter CVV"
+              required
+            />
+
+            <div class="modal-choice-btns" id="modal-choice-btns">
+              <button type="submit" class="modal-btn">Pay</button>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section id="message" class="message"></section>
+    </div>
+
+    <script src="app.js" type="module"></script>
+  </body>
+</html>
