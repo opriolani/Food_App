@@ -1,0 +1,109 @@
+.footer {
+  background: var(--black);
+  color: rgba(250, 247, 242, 0.55);
+  padding: 70px 0 30px;
+}
+.footer__inner {}
+.footer__grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 52px;
+}
+
+/* Brand */
+.footer__brand {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 700;
+  color: #FAF7F2;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.footer__tagline {
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+.footer__about {
+  font-size: 0.85rem;
+  line-height: 1.7;
+  max-width: 240px;
+  margin-bottom: 20px;
+}
+
+.footer__socials { display: flex; gap: 10px; }
+.footer__social {
+  width: 36px; height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 247, 242, 0.18);
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(250, 247, 242, 0.5);
+  transition: border-color var(--transition), color var(--transition);
+}
+.footer__social:hover { border-color: var(--amber); color: var(--amber); }
+
+/* Section title */
+.footer__section-title {
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 16px;
+}
+
+/* Hours */
+.footer__hours { display: flex; flex-direction: column; gap: 8px; }
+.footer__hours-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.84rem;
+}
+
+/* Contact */
+.footer__contact { display: flex; flex-direction: column; gap: 14px; }
+.footer__contact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.footer__icon { color: var(--amber); flex-shrink: 0; margin-top: 1px; }
+
+/* Nav */
+.footer__nav { display: flex; flex-direction: column; gap: 8px; }
+.footer__link {
+  font-size: 0.84rem;
+  color: rgba(250, 247, 242, 0.5);
+  transition: color var(--transition);
+}
+.footer__link:hover { color: var(--amber); }
+
+/* Bottom */
+.footer__bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+}
+.footer__admin-link {
+  color: rgba(250, 247, 242, 0.3);
+  font-size: 0.75rem;
+  transition: color var(--transition);
+}
+.footer__admin-link:hover { color: var(--amber); }
+
+@media (max-width: 768px) {
+  .footer__grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+}

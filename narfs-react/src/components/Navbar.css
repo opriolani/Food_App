@@ -1,0 +1,166 @@
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  padding: 22px 0;
+  transition: background var(--transition), padding var(--transition), box-shadow var(--transition);
+}
+.navbar--scrolled {
+  background: rgba(26, 26, 26, 0.96);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 14px 0;
+  box-shadow: 0 2px 24px rgba(0,0,0,0.3);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo */
+.navbar__logo {
+  display: flex;
+  flex-direction: column;
+  line-height: 1;
+}
+.navbar__logo-name {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #FAF7F2;
+  letter-spacing: 0.01em;
+}
+.navbar__logo-sub {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-top: -2px;
+}
+
+/* Desktop nav links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+.navbar__link {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: rgba(250, 247, 242, 0.72);
+  transition: color var(--transition);
+  position: relative;
+}
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0; right: 0;
+  height: 1.5px;
+  background: var(--amber);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.navbar__link:hover,
+.navbar__link--active { color: #FAF7F2; }
+.navbar__link:hover::after,
+.navbar__link--active::after { transform: scaleX(1); }
+
+/* Cart button */
+.navbar__actions { display: flex; align-items: center; gap: 10px; }
+
+.navbar__cart {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--amber);
+  color: white;
+  padding: 9px 18px;
+  border-radius: var(--radius-full);
+  font-size: 0.83rem;
+  font-weight: 600;
+  transition: background var(--transition), transform var(--transition);
+}
+.navbar__cart:hover { background: var(--amber-light); transform: scale(1.04); }
+.navbar__cart:active { transform: scale(0.97); }
+
+.navbar__badge {
+  position: absolute;
+  top: -6px; right: -6px;
+  background: white;
+  color: var(--amber);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px; height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: badgePop 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+@keyframes badgePop {
+  from { transform: scale(0); }
+  to   { transform: scale(1); }
+}
+
+/* Hamburger */
+.navbar__hamburger {
+  display: none;
+  color: #FAF7F2;
+  padding: 4px;
+}
+
+/* Mobile drawer */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  background: var(--black);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 100px 40px 60px;
+  transform: translateX(100%);
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.mobile-drawer--open { transform: translateX(0); }
+
+.mobile-drawer__links { display: flex; flex-direction: column; gap: 4px; }
+
+.mobile-drawer__link {
+  font-family: var(--font-display);
+  font-size: 2.8rem;
+  font-weight: 700;
+  font-style: italic;
+  color: rgba(250, 247, 242, 0.85);
+  padding: 8px 0;
+  transition: color var(--transition);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  animation: slideIn 0.4s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(30px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.mobile-drawer__link:hover { color: var(--amber); }
+
+.mobile-drawer__tagline {
+  margin-top: auto;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(250,247,242,0.2);
+}
+
+/* ─── Responsive ─────────────────────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  .navbar__links { display: none; }
+  .navbar__hamburger { display: block; }
+  .navbar__cart-label { display: none; }
+  .navbar__cart { padding: 9px 14px; }
+}
